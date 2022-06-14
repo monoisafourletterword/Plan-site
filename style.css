@@ -30,20 +30,26 @@ header {
     color: rgb(255, 179, 192);
 }
 
+#Zag:hover {
+    color: rgb(133, 93, 128);
+    cursor: pointer;
+}
+
 .headElem {
     float: right;
     margin: 29px 40px auto 10px;
     font-style: italic;
-
 }
 
 #tDom {
+    display: none;
     margin-right: 4px;
     padding: 10px 25px 10px 25px;
     cursor: pointer;
 }
 
 #tFilm {
+    display: none;
     margin-right: 4px;
     padding: 10px 25px 10px 25px;
     cursor: pointer;
@@ -51,12 +57,14 @@ header {
 
 
 #tKnig {
+    display: none;
     margin-right: 4px;
     padding: 10px 25px 10px 25px;
     cursor: pointer;
 }
 
 #tAlbum {
+    display: none;
     margin-right: 4px;
     padding: 10px 25px 10px 25px;
     cursor: pointer;

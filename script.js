@@ -2,8 +2,11 @@
 const showFilm = document.querySelector("#tFilm");
 const showDom = document.querySelector("#tDom");
 const showAlbum = document.querySelector("#tAlbum");
+const showKnig = document.querySelector("#tKnig");
 const spisok1 = document.querySelector("#spisok1");
 const close1 = document.querySelector('#close1');
+const showButtons = document.querySelector("#Zag");
+
 
 //Показать список фильмов
 showFilm.addEventListener('click', function () {
@@ -18,6 +21,26 @@ close1.addEventListener('click', function () {
 //Добавить событие в план
 showDom.addEventListener('click', function () {
     var whatDay = prompt("День недели");
+})
+
+//Показать функционал
+
+var isMenu = false;
+
+showButtons.addEventListener('click', function () {
+    if (isMenu) {
+        showAlbum.style.display = "inline";
+        showFilm.style.display = "inline";
+        showDom.style.display = "inline";
+        showKnig.style.display = "inline";
+        isMenu = false;
+    } else {
+        showAlbum.style.display = "none";
+        showFilm.style.display = "none";
+        showDom.style.display = "none";
+        showKnig.style.display = "none";
+        isMenu = true;
+    }
 })
 
 //Открыть аудиозаписи в ВК
