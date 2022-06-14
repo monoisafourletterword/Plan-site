@@ -72,8 +72,13 @@ header {
     margin-right: 4px;
     padding: 10px 25px 10px 25px;
     cursor: pointer;
-    animation: ani 0.6s forwards;
+    animation-duration: 0.6s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+    animation-name: ani;
 }
+
+
 
 #tDom:hover, #tFilm:hover, #tKnig:hover, #tAlbum:hover {
     color: rgba(69, 69, 69, 0.755);
