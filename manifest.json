@@ -1,0 +1,10 @@
+{
+    "version": "1.0",
+    "api_version": 1,
+    "layout":
+        {
+        "color": "#81a1c1",
+        "logo": "https://cdn-icons.flaticon.com/png/512/2244/premium/2244228.png?token=exp=1654972979~hmac=e6a3f2736e0f45f889075c1c64ef85cd",
+        "show_title": true
+        }
+    }

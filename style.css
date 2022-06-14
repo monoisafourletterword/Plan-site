@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+html {
+    font-family: 'Playfair Display';
+    background-image: url(images/backImage.jpg);
+    
+}
+
+
+header {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(43, 54, 42);
+    color: white;
+}
+
+
+
+#Zag {
+    text-align: left;
+    float: left;
+    font-size: 33px;
+    font-weight: 500;
+    margin-left: 40px;
+    margin-top: 14px;
+    color: rgb(255, 179, 192);
+}
+
+.headElem {
+    float: left;
+    margin: 29px 0px auto 140px;
+    font-style: italic;
+
+}
+
+#tDom {
+    margin-right: 4px;
+    padding: 10px 25px 10px 25px;
+    cursor: pointer;
+}
+
+#tFilm {
+    margin-right: 4px;
+    padding: 10px 25px 10px 25px;
+    cursor: pointer;
+}
+
+
+#tKnig {
+    margin-right: 4px;
+    padding: 10px 25px 10px 25px;
+    cursor: pointer;
+}
+
+#tAlbum {
+    margin-right: 4px;
+    padding: 10px 25px 10px 25px;
+    cursor: pointer;
+}
+
+#tDom:hover, #tFilm:hover, #tKnig:hover, #tAlbum:hover {
+    color: rgba(69, 69, 69, 0.755);
+}
+
+
+#tables {
+    margin-top: 100px;
+    animation: ani 1s forwards;
+    transform: scale(97%);
+}
+
+@keyframes ani {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes ani2 {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+tr {
+    background-color: rgba(42, 54, 38, 0.681);
+}
+
+th, td {
+    border: 0.1px solid rgba(0, 0, 0, 0.105);
+}
+
+th {
+    background-color: rgba(198, 198, 198, 0.36);
+    font-style: italic;
+}
+
+#Monday {
+    padding: 5px;
+}
+
+#Tuesday {
+    padding: 5px;
+}
+
+#Wednesday {
+    padding: 5px;
+}
+
+#Thursday {
+    padding: 5px;
+}
+
+#Friday {
+    padding: 5px;
+}
+
+#Saturday {
+    padding: 5px;
+}
+
+#Sunday {
+    padding: 5px;
+}
+
+table {
+    padding: 0px 50px 0px 50px;
+    margin: 5px 5px 5px 5px;
+    width: 490px;
+    font-size: 13px;
+    color: white;
+}
+
+#spisok1 {
+    display: none;
+    position: absolute;
+    z-index: 50;
+    background-color: white;
+    text-align: left;
+    font-size: medium;
+    padding-left: 19px;
+    margin: auto;
+    top: 100px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: max-content;
+    border-radius: 10px;
+    box-shadow: 4px 5px 0px 10000px rgba(0, 0, 0, 0.4);
+    animation: ani 0.7s forwards;
+}
+
+#close1 {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+
+}
+
+#close1:hover {
+    color: grey;
+}
+
+
+
+div:not([class]) {
+    float: left;
+}
+
+caption {
+    margin-bottom: 8px;
+    font-size: large;
+    color: white;
+    text-transform: uppercase;
+}
+
+#Film {
+    background-color: rgba(188, 133, 166, 0.316);
+
+}
+
+#Album {
+    background-color: rgba(129, 179, 162, 0.321);
+}
+
+.domiki {
+    background: repeating-linear-gradient(-45deg, rgba(235, 235, 235, 0), rgba(235, 235, 235, 0) 5px, rgba(255, 255, 255, 0.167) 5px, rgba(255, 255, 255, 0.167) 10px) fixed;
+}
+
+
+
+#left {}
+
+#center {}
+
+#right {}
