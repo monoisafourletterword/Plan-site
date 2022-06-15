@@ -166,7 +166,7 @@ table {
 
 }
 
-#spisok1 {
+#spisok1, #spisok2 {
     display: none;
     position: absolute;
     z-index: 50;
@@ -186,7 +186,7 @@ table {
     animation: ani 0.7s forwards;
 }
 
-#close1 {
+#close1, #close2 {
     text-align: center;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -224,4 +224,18 @@ caption {
 
 .domiki {
     background: repeating-linear-gradient(-45deg, rgba(235, 235, 235, 0), rgba(235, 235, 235, 0) 5px, rgba(255, 255, 255, 0.167) 5px, rgba(255, 255, 255, 0.167) 10px) fixed;
+}
+
+.Zarad {
+    color: rgb(186, 255, 186);
+    cursor: pointer;
+}
+
+.Zarad:hover {
+    opacity: 50%;
+}
+
+li {
+    margin-left: -10px;
+    width: 200px;
 }

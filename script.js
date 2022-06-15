@@ -4,8 +4,11 @@ const showDom = document.querySelector("#tDom");
 const showAlbum = document.querySelector("#tAlbum");
 const showKnig = document.querySelector("#tKnig");
 const spisok1 = document.querySelector("#spisok1");
+const spisok2 = document.querySelector("#spisok2");
 const close1 = document.querySelector('#close1');
+const close2 = document.querySelector('#close2');
 const showButtons = document.querySelector("#Zag");
+var zarad = document.querySelectorAll(".Zarad");
 
 
 //Показать список фильмов
@@ -87,3 +90,14 @@ switch (n) {
         break;
 }
 
+//Показать упражнения зарядки
+for (var i = 0; i < zarad.length; i++) {
+    zarad[i].onclick = function(){
+        spisok2.style.display = "block";
+    };
+  }
+
+  //Закрыть список фильмов
+close2.addEventListener('click', function () {
+    spisok2.style.display = "none";
+})
