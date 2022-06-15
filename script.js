@@ -56,31 +56,31 @@ let dayColor;
 switch (n) {
     case 0:
         dayColor = document.querySelector("#Sund");
-        dayColor.style.color = "#ffb3ed";
+        dayColor.style.color = "pink";
         break;
     case 1:
         dayColor = document.querySelector("#Mond");
-        dayColor.style.color = "#ffb3ed";
+        dayColor.style.color = "pink";
         break;
     case 2:
         dayColor = document.querySelector("#Tuesd");
-        dayColor.style.color = "#ffb3ed";
+        dayColor.style.color = "pink";
         break;
     case 3:
         dayColor = document.querySelector("#Wednesd");
-        dayColor.style.color = "#ffb3ed";
+        dayColor.style.color = "pink";
         break;
     case 4:
         dayColor = document.querySelector("#Thursd");
-        dayColor.style.color = "#ffb3ed";
+        dayColor.style.color = "pink";
         break;
     case 5:
         dayColor = document.querySelector("#Frid");
-        dayColor.style.color = "#ffb3ed";
+        dayColor.style.color = "pink";
         break;
     case 6:
         dayColor = document.querySelector("#Saturd");
-        dayColor.style.color = "#ffb3ed";
+        dayColor.style.color = "pink";
         break;
     default:
         alert('Привет! Не работает!');
