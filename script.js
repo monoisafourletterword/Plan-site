@@ -9,6 +9,13 @@ const close1 = document.querySelector('#close1');
 const close2 = document.querySelector('#close2');
 const showButtons = document.querySelector("#Zag");
 var zarad = document.querySelectorAll(".Zarad");
+const day1 = document.querySelector("#day1");
+const day2 = document.querySelector("#day2");
+const day3 = document.querySelector("#day3");
+const day4 = document.querySelector("#day4");
+const day5 = document.querySelector("#day5");
+const day6 = document.querySelector("#day6");
+const day7 = document.querySelector("#day7");
 
 
 //Показать список фильмов
@@ -60,30 +67,37 @@ switch (n) {
     case 0:
         dayColor = document.querySelector("#Sund");
         dayColor.style.color = "pink";
+        day7.style.display = "block";
         break;
     case 1:
         dayColor = document.querySelector("#Mond");
         dayColor.style.color = "pink";
+        day1.style.display = "block";
         break;
     case 2:
         dayColor = document.querySelector("#Tuesd");
         dayColor.style.color = "pink";
+        day2.style.display = "block";
         break;
     case 3:
         dayColor = document.querySelector("#Wednesd");
         dayColor.style.color = "pink";
+        day3.style.display = "block";
         break;
     case 4:
         dayColor = document.querySelector("#Thursd");
         dayColor.style.color = "pink";
+        day4.style.display = "block";
         break;
     case 5:
         dayColor = document.querySelector("#Frid");
         dayColor.style.color = "pink";
+        day5.style.display = "block";
         break;
     case 6:
         dayColor = document.querySelector("#Saturd");
         dayColor.style.color = "pink";
+        day6.style.display = "block";
         break;
     default:
         alert('Привет! Не работает!');
