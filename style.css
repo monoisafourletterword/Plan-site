@@ -275,7 +275,7 @@ li {
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
     #tables {
-        transform: scale(80%);
+        -webkit-transform:scale(80%);
         margin-top: 60px;
     }
 
