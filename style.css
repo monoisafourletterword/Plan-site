@@ -86,14 +86,13 @@ header {
 
 
 #tables {
-
     animation: ani 1s forwards;
-    transform: scale(97%);
     position: absolute;
-    width: auto;
-    margin-left: auto;
-    margin-right: auto;
+    width: 420px;
+    height: 400px;
     margin-top: 100px;
+    left: 50%;
+    margin-left: -210px;
 }
 
 @keyframes ani {
@@ -159,7 +158,6 @@ th {
 
 table {
     padding: 0px 50px 0px 50px;
-    margin: 5px 5px 5px 5px;
     width: 420px;
     font-size: 13px;
     color: white;
@@ -198,14 +196,6 @@ table {
     color: grey;
 }
 
-
-
-div:not([class]) {
-    float: left;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 caption {
     margin-bottom: 8px;
     font-size: large;
@@ -240,30 +230,36 @@ li {
     width: 200px;
 }
 
-#day1{
+#day1 {
     display: none;
 }
 
-#day2{
+#day2 {
     display: none;
 }
 
-#day3{
+#day3 {
     display: none;
 }
 
-#day4{
+#day4 {
     display: none;
 }
 
-#day5{
+#day5 {
     display: none;
 }
 
-#day6{
+#day6 {
     display: none;
 }
 
-#day7{
+#day7 {
     display: none;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    #tables {
+        transform: scale(80%);
+    }
 }
