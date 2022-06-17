@@ -265,7 +265,7 @@ li {
 }
 
 #sign {
-    color:rgba(198, 198, 198, 0.6);
+    color: rgba(198, 198, 198, 0.6);
     font-size: 10px;
     position: absolute;
     margin-top: 30px;
@@ -279,7 +279,7 @@ li {
         margin-top: 60px;
     }
 
-    .headElem{
+    .headElem {
         padding: 5px;
         margin: 7px;
     }
@@ -300,4 +300,4 @@ li {
         animation: ani 0.5s forwards;
     }
 
-} 
+}
