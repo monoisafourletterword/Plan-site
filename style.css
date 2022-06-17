@@ -37,9 +37,14 @@ header {
 
 .headElem {
     float: right;
-    margin: 29px 40px auto 10px;
+    margin: -15px 40px 150px 10px;
     font-style: italic;
 }
+
+#MainMenu {
+    margin-left: 180px;
+}
+
 
 #tDom {
     display: none;
@@ -90,9 +95,10 @@ header {
     position: absolute;
     width: 420px;
     height: 400px;
-    margin-top: 100px;
+    margin-top: 200px;
     left: 50%;
     margin-left: -210px;
+    transform: scale(120%);
 }
 
 @keyframes ani {
@@ -258,8 +264,40 @@ li {
     display: none;
 }
 
+#sign {
+    color:rgba(198, 198, 198, 0.6);
+    font-size: 10px;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 40px;
+
+}
+
 @media screen and (min-width: 320px) and (max-width: 768px) {
     #tables {
         transform: scale(80%);
+        margin-top: 60px;
     }
-}
+
+    .headElem{
+        padding: 5px;
+        margin: 7px;
+    }
+
+    #tAlbum {
+        margin-left: 100px
+    }
+
+    #MainMenu {
+        display: none;
+        margin-top: -10px;
+        margin-left: 0px;
+        position: relative;
+        z-index: 40;
+        width: 100%;
+        height: 1000px;
+        background-color: rgba(0, 0, 0, 0.689);
+        animation: ani 0.5s forwards;
+    }
+
+} 

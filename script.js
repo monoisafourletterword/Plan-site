@@ -3,6 +3,7 @@ const showFilm = document.querySelector("#tFilm");
 const showDom = document.querySelector("#tDom");
 const showAlbum = document.querySelector("#tAlbum");
 const showKnig = document.querySelector("#tKnig");
+const showMenu = document.querySelector("#MainMenu");
 const spisok1 = document.querySelector("#spisok1");
 const spisok2 = document.querySelector("#spisok2");
 const close1 = document.querySelector('#close1');
@@ -43,12 +44,15 @@ showButtons.addEventListener('click', function () {
         showFilm.style.display = "inline";
         showDom.style.display = "inline";
         showKnig.style.display = "inline";
+        showMenu.style.display = "inline-block";
+
         isMenu = false;
     } else {
         showAlbum.style.display = "none";
         showFilm.style.display = "none";
         showDom.style.display = "none";
         showKnig.style.display = "none";
+        showMenu.style.display = "none";
         isMenu = true;
     }
 })
