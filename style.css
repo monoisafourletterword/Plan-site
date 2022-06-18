@@ -99,6 +99,7 @@ header {
     left: 50%;
     margin-left: -210px;
     transform: scale(120%);
+    
 }
 
 @keyframes ani {
@@ -274,9 +275,14 @@ li {
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
-    #tables {
-        -webkit-transform:scale(80%);
-        margin-top: 60px;
+    table {
+        font-size: 11px;
+        width: 355px;
+        height: 260px;
+        margin-left: auto;
+        margin-right: 6px;
+        margin-top: -30px;
+
     }
 
     .headElem {
