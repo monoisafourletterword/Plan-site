@@ -70,37 +70,30 @@ let dayColor;
 switch (n) {
     case 0:
         dayColor = document.querySelector("#Sund");
-        dayColor.style.color = "pink";
         day7.style.display = "block";
         break;
     case 1:
         dayColor = document.querySelector("#Mond");
-        dayColor.style.color = "pink";
         day1.style.display = "block";
         break;
     case 2:
         dayColor = document.querySelector("#Tuesd");
-        dayColor.style.color = "pink";
         day2.style.display = "block";
         break;
     case 3:
         dayColor = document.querySelector("#Wednesd");
-        dayColor.style.color = "pink";
         day3.style.display = "block";
         break;
     case 4:
         dayColor = document.querySelector("#Thursd");
-        dayColor.style.color = "pink";
         day4.style.display = "block";
         break;
     case 5:
         dayColor = document.querySelector("#Frid");
-        dayColor.style.color = "pink";
         day5.style.display = "block";
         break;
     case 6:
         dayColor = document.querySelector("#Saturd");
-        dayColor.style.color = "pink";
         day6.style.display = "block";
         break;
     default:
@@ -110,12 +103,12 @@ switch (n) {
 
 //Показать упражнения зарядки
 for (var i = 0; i < zarad.length; i++) {
-    zarad[i].onclick = function(){
+    zarad[i].onclick = function () {
         spisok2.style.display = "block";
     };
-  }
+}
 
-  //Закрыть список фильмов
+//Закрыть список фильмов
 close2.addEventListener('click', function () {
     spisok2.style.display = "none";
 })

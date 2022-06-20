@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
 html {
-    font-family: 'Playfair Display';
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: medium;
-    background-image: url(images/backImage.jpg);
+    background-color:rgb(30, 30, 30)
 }
 
 
@@ -14,7 +14,7 @@ header {
     left: 0;
     width: 100%;
     height: 80px;
-    background-color: rgb(23, 29, 22);
+    background-color: rgb(20, 20, 20);
     color: white;
 }
 
@@ -27,11 +27,11 @@ header {
     font-weight: 500;
     margin-left: 40px;
     margin-top: 14px;
-    color: rgb(255, 179, 192);
+    color: rgb(255, 255, 255);
 }
 
 #Zag:hover {
-    color: rgb(133, 93, 128);
+    color: rgb(137, 137, 137);
     cursor: pointer;
 }
 
@@ -99,7 +99,7 @@ header {
     left: 50%;
     margin-left: -210px;
     transform: scale(120%);
-    
+
 }
 
 @keyframes ani {
@@ -123,7 +123,7 @@ header {
 }
 
 tr {
-    background-color: rgba(29, 37, 26, 0.784);
+    background-color: rgba(45, 45, 45, 0.784);
 }
 
 th, td {
@@ -224,7 +224,7 @@ caption {
 }
 
 .Zarad {
-    color: rgb(186, 255, 186);
+    color: rgb(105, 155, 255);
     cursor: pointer;
 }
 
@@ -269,8 +269,8 @@ li {
     color: rgba(198, 198, 198, 0.6);
     font-size: 10px;
     position: absolute;
-    margin-top: 30px;
-    margin-left: 40px;
+    margin-top: 28px;
+    margin-left: 42px;
 
 }
 
