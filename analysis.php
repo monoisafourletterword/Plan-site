@@ -168,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
                 <button type="submit" name="period" value="год" class="button">За год</button>
               </form>
             </div>
-            <div><?=$t ?></div>
+            <div><?= $t ?></div>
           </div>
         </div>
       </section>
@@ -177,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
 
 </html>
 
-<div style="height: 50%; width: 50%; position: absolute;top: 60%;left: 50%;transform: translate(-50% , -50%)">
+<div style="height: 50%; width: 50%; position: absolute;top: 65%;left: 50%;transform: translate(-50% , -50%)">
   <div>
     <canvas id="myChart"></canvas>
   </div>
@@ -207,8 +207,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
     });
   </script>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
+
