@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .container {
@@ -52,11 +52,11 @@
 
 .total-sales {
   margin-bottom: 20px;
-  
+
 }
 
 .chart {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   border-radius: 6px;
   background: #fff;
@@ -114,11 +114,11 @@
 }
 
 .chart {
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   border-radius: 6px;
   background: #fff;
-  
+
   animation: fadeIn 1s ease forwards;
   animation-delay: 0.7s;
 }
@@ -137,6 +137,7 @@
 body {
   animation-fill-mode: forwards;
 }
+
 /* Дополнительные стили для таблицы */
 table {
   width: 100%;
@@ -169,9 +170,11 @@ tr:nth-child(even) {
 /* ... предыдущие стили ... */
 
 .product-image {
-  width: 100px; /* или другой размер по желанию */
+  width: 100px;
+  /* или другой размер по желанию */
   height: auto;
-  border-radius: 4px; /* если нужны скругленные углы */
+  border-radius: 4px;
+  /* если нужны скругленные углы */
 }
 
 /* Стили для улучшения внешнего вида таблицы */
