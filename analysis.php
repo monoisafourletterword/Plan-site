@@ -89,10 +89,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
   $response = post3('https://api-seller.ozon.ru/v1/finance/cash-flow-statement/list', $data3);
   if (isset($response['result']) && isset($response['result']['cash_flows'])) {
     $totalOrders = sumOrdersAmount($response);
-    $t="Сумма всех заказов за период ($period): " . $totalOrders;
+    $t = "Сумма всех заказов за период ($period): " . $totalOrders;
   } else {
-    $t="Невозможно получить данные о заказах за выбранный период.";
-  }  
+    $t = "Невозможно получить данные о заказах за выбранный период.";
+  }
 
 
   $chartData = [
@@ -144,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
             <li><a href="index.html">Главная</a></li>
             <li><a href="seller.html">Ваш профиль</a></li>
             <li><a href="analysis.php">Аналитика</a></li>
-            <li><a href="ozon2.php">&nbsp; &nbsp; &nbsp;  Аналитика 2</a></li>
+            <li><a href="ozon2.php">&nbsp; &nbsp; &nbsp; Аналитика 2</a></li>
             <li><a href="#">Настройки</a></li>
           </ul>
         </nav>
@@ -157,7 +157,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
         <div class="chart">
           <h2>Место для графика</h2>
           <p> </p>
-              <br>
+          <br>
           <div class="container">
             <h1>Выберите период для расчета суммы заказов:</h1>
             <br>
@@ -168,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
                 <button type="submit" name="period" value="год" class="button">За год</button>
               </form>
             </div>
-            <div><?= $t ?? ''?></div>
+            <div><?= $t ?? '' ?></div>
           </div>
         </div>
       </section>
@@ -207,4 +207,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
     });
   </script>
 </div>
-
