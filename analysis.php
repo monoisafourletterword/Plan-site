@@ -1,57 +1,3 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Аналитическая панель</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-  <div class="container">
-    <header class="header">
-      <h1>Аналитика продаж</h1>
-    </header>
-
-    <div class="main-content">
-      <aside class="sidebar">
-        <nav>
-          <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="seller.html">Ваш профиль</a></li>
-            <li><a href="analysis.php">Аналитика</a></li>
-            <li><a href="ozon2.php">&nbsp; &nbsp; &nbsp;  Аналитика 2</a></li>
-            <li><a href="#">Настройки</a></li>
-          </ul>
-        </nav>
-      </aside>
-
-      <section class="analytics">
-
-
-        <!-- Место для графика на PHP -->
-        <div class="chart">
-          <h2>Место для графика</h2>
-          <p> </p>
-              <br>
-          <div class="container">
-            <h1>Выберите период для расчета суммы заказов:</h1>
-            <br>
-            <div class="buttons">
-              <form method="post">
-                <button type="submit" name="period" value="месяц" class="button">За месяц</button>
-                <button type="submit" name="period" value="полгода" class="button">За полгода</button>
-                <button type="submit" name="period" value="год" class="button">За год</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-</body>
-
-</html>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
 
@@ -143,9 +89,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
   $response = post3('https://api-seller.ozon.ru/v1/finance/cash-flow-statement/list', $data3);
   if (isset($response['result']) && isset($response['result']['cash_flows'])) {
     $totalOrders = sumOrdersAmount($response);
-    echo "Сумма всех заказов за период ($period): " . $totalOrders;
+    $t="Сумма всех заказов за период ($period): " . $totalOrders;
   } else {
-    echo "Невозможно получить данные о заказах за выбранный период.";
+    $t="Невозможно получить данные о заказах за выбранный период.";
   }  
 
 
@@ -175,6 +121,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
   }
 }
 ?>
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Аналитическая панель</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Аналитика продаж</h1>
+    </header>
+
+    <div class="main-content">
+      <aside class="sidebar">
+        <nav>
+          <ul>
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="seller.html">Ваш профиль</a></li>
+            <li><a href="analysis.php">Аналитика</a></li>
+            <li><a href="ozon2.php">&nbsp; &nbsp; &nbsp;  Аналитика 2</a></li>
+            <li><a href="#">Настройки</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <section class="analytics">
+
+
+        <!-- Место для графика на PHP -->
+        <div class="chart">
+          <h2>Место для графика</h2>
+          <p> </p>
+              <br>
+          <div class="container">
+            <h1>Выберите период для расчета суммы заказов:</h1>
+            <br>
+            <div class="buttons">
+              <form method="post">
+                <button type="submit" name="period" value="месяц" class="button">За месяц</button>
+                <button type="submit" name="period" value="полгода" class="button">За полгода</button>
+                <button type="submit" name="period" value="год" class="button">За год</button>
+              </form>
+            </div>
+            <div><?=$t ?></div>
+          </div>
+        </div>
+      </section>
+    </div>
+</body>
+
+</html>
+
 <div style="height: 50%; width: 50%; position: absolute;top:79%;left: 50%;transform: translate(-50% , -50%)">
   <div>
     <canvas id="myChart"></canvas>
