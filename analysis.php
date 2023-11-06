@@ -168,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
                 <button type="submit" name="period" value="год" class="button">За год</button>
               </form>
             </div>
-            <div><?= $t ?></div>
+            <div><?= $t ?? ''?></div>
           </div>
         </div>
       </section>
