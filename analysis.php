@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -19,7 +18,7 @@
       <aside class="sidebar">
         <nav>
           <ul>
-            <li><a href="#">Главная</a></li>
+            <li><a href="index.html">Главная</a></li>
             <li><a href="seller.html">Ваш профиль</a></li>
             <li><a href="analysis.php">Аналитика</a></li>
             <li><a href="ozon2.php">&nbsp; &nbsp; &nbsp;  Аналитика 2</a></li>
