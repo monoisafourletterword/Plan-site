@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
   $response = post3('https://api-seller.ozon.ru/v1/finance/cash-flow-statement/list', $data3);
   if (isset($response['result']) && isset($response['result']['cash_flows'])) {
     $totalOrders = sumOrdersAmount($response);
-    $t = "Сумма всех заказов за период ($period): " . $totalOrders;
+    $t = "Сумма всех заказов за период ($period): " . $totalOrders . " руб.";
   } else {
     $t = "Невозможно получить данные о заказах за выбранный период.";
   }
@@ -177,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
 
 </html>
 
-<div style="height: 50%; width: 50%; position: absolute;top: 65%;left: 50%;transform: translate(-50% , -50%)">
+<div style="height: 50%; width: 50%; position:absolute;top: 82%;left: 50%;transform: translate(-50% , -50%)">
   <div>
     <canvas id="myChart"></canvas>
   </div>
