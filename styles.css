@@ -227,3 +227,13 @@ table tr:nth-child(even) {
   height: 400px;
 }
 
+.chart-container {
+  width: 100%; /* или любой другой размер в зависимости от вашего дизайна */
+  max-width: 800px; /* или любой другой максимальный размер */
+  margin: 0 auto; /* центрирование контейнера */
+}
+
+.sum-orders {
+  text-align: center;
+  margin-bottom: 20px; /* или любой другой размер для отступа между текстом и графиком */
+}

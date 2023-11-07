@@ -168,7 +168,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
                 <button type="submit" name="period" value="год" class="button">За год</button>
               </form>
             </div>
-            <div><?= $t ?? '' ?></div>
+            <div class="sum-orders"><?= $t ?? '' ?></div>
+            <div class="chart-container">
+              <canvas id="myChart"></canvas>
+            </div>
           </div>
         </div>
       </section>
