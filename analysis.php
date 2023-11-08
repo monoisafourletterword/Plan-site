@@ -176,6 +176,42 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['period'])) {
         </div>
       </section>
     </div>
+
+    <script>
+      // Ожидаем полной загрузки DOM
+      document.addEventListener('DOMContentLoaded', function() {
+        // Находим элемент Аналитика и Аналитика 2
+        var analyticsMenuItem = document.querySelector('nav ul li a[href="analysis.php"]');
+        var analyticsSubMenuItem = document.querySelector('nav ul li a[href="ozon2.php"]');
+
+        // Изначально прячем Аналитика 2
+        analyticsSubMenuItem.style.display = 'none';
+
+        // Функция для показа/скрытия Аналитика 2
+        function toggleSubmenu(display) {
+          analyticsSubMenuItem.style.display = display;
+        }
+
+        // Вешаем обработчики событий на пункт Аналитика
+        analyticsMenuItem.addEventListener('mouseenter', function() {
+          toggleSubmenu('block'); // Показываем подменю при наведении
+        });
+
+        analyticsMenuItem.addEventListener('mouseleave', function() {
+          toggleSubmenu('none'); // Скрываем подменю когда курсор уходит
+        });
+
+        // Вешаем обработчик события и на само подменю, чтобы оно не исчезало при попытке нажать
+        analyticsSubMenuItem.addEventListener('mouseenter', function() {
+          toggleSubmenu('block');
+        });
+
+        analyticsSubMenuItem.addEventListener('mouseleave', function() {
+          toggleSubmenu('none');
+        });
+      });
+    </script>
+
 </body>
 
 </html>
