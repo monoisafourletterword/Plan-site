@@ -11,7 +11,7 @@
 <body>
 <div class="container">
     <header class="header">
-        <h1>Аналитикаа продаж</h1>
+        <h1>Аналитика продаж ВСЕМ ПРИВЕТ</h1>
     </header>
 
     <div class="main-content">
