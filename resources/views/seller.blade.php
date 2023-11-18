@@ -15,17 +15,56 @@
         </header>
 
         <div class="main-content">
-            <aside class="sidebar">
-                <!-- Сайдбар как в предыдущем примере -->
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Главная</a></li>
-                        <li><a href="seller.html">Ваш профиль</a></li>
-                        <li><a href="analysis.php">Аналитика</a></li>
-                        <li><a href="#">Настройки</a></li>
-                    </ul>
-                </nav>
-            </aside>
+      <aside class="sidebar">
+        <nav>
+          <ul>
+            <li><a href="{{route('index')}}">Главная</a></li>
+            <li><a href="{{route('seller')}}">Ваш профиль</a></li>
+            <li><a class="dsa">Аналитика</a></li>
+                    <li><a href="{{route('analytics1')}}" id="analyticsSubMenuItem1" style="display: none;">&nbsp; &nbsp; &nbsp; Аналитика 1</a></li>
+                    <li><a href="{{route('analytics2')}}" id="analyticsSubMenuItem2" style="display: none;">&nbsp; &nbsp; &nbsp; Аналитика 2</a></li>
+            <li><a href="#">Настройки</a></li>
+          </ul>
+        </nav>
+      </aside>
+      <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var analyticsMenuItem = document.querySelector('nav ul li a[class="dsa"]');
+    var analyticsSubMenuItem2 = document.getElementById('analyticsSubMenuItem2');
+    var analyticsSubMenuItem1 = document.getElementById('analyticsSubMenuItem1');
+
+    analyticsMenuItem.addEventListener('mouseenter', function() {
+        analyticsSubMenuItem2.style.display = 'block';
+        analyticsSubMenuItem1.style.display = 'block';
+    });
+
+    analyticsMenuItem.addEventListener('mouseleave', function() {
+        analyticsSubMenuItem2.style.display = 'none';
+        analyticsSubMenuItem1.style.display = 'none';
+    });
+
+    analyticsSubMenuItem2.addEventListener('mouseenter', function() {
+        analyticsSubMenuItem2.style.display = 'block';
+        analyticsSubMenuItem1.style.display = 'block';
+    });
+
+    analyticsSubMenuItem2.addEventListener('mouseleave', function() {
+        analyticsSubMenuItem2.style.display = 'none';
+        analyticsSubMenuItem1.style.display = 'none';
+    });
+    
+    analyticsSubMenuItem1.addEventListener('mouseenter', function() {
+        analyticsSubMenuItem2.style.display = 'block';
+        analyticsSubMenuItem1.style.display = 'block';
+    });
+
+    analyticsSubMenuItem1.addEventListener('mouseleave', function() {
+        analyticsSubMenuItem2.style.display = 'none';
+        analyticsSubMenuItem1.style.display = 'none';
+    });
+});
+
+    </script>
 
             <section class="profile">
                 <div class="profile-info">
