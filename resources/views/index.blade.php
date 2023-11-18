@@ -29,7 +29,7 @@
       </aside>
       <section class="analytics">
         <div class="chart">
-          <h2>Здравствуйте, Иванов Иван!</h2>
+          <h2>Здравствуйте, Кутявин Даниил!</h2>
           <p>Ваш доход на текущий момент состовляет: <strong>3 400 212  руб.</strong></p>
         </div>
       </section>
