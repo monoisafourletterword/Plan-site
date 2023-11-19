@@ -197,4 +197,79 @@ class AnalyticsController extends Controller
           $m = 5;
           return view('analytics2', compact('sss'));
     }
+    public function seller(Request $request)
+    {
+      function post($host, $data) {
+        $api_key='6254a8e6-00a7-4840-bfcc-b2eebd4c420d';
+        $client_id ='527772';
+    
+        $headers = [
+            'Client-Id: ' . $client_id,
+            'Api-Key: ' . $api_key,
+            'Content-Type: application/json'
+        ];
+    
+        $curl = curl_init($host);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($curl, CURLOPT_HEADER, false);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($curl, CURLOPT_TIMEOUT, 30);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    
+        $return = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+    
+        if ($err) {
+            $res = "cURL Error #: " . $err;
+        } else {
+            $res = json_decode($return, true);
+        }
+    
+        return $res;
+    }
+    function getPreviousMonthDate($monthsAgo = 1) {
+        return date("Y-m", strtotime("-{$monthsAgo} month"));
+    }
+    
+    $dataLastMonth = [
+        "date" => getPreviousMonthDate(1)
+    ];
+    
+    $dataTwoMonthsAgo = [
+        "date" => getPreviousMonthDate(2) 
+    ];
+    $response=post('https://api-seller.ozon.ru/v1/finance/realization', $dataLastMonth);
+    $response2=post('https://api-seller.ozon.ru/v1/finance/realization', $dataTwoMonthsAgo);
+    $name=$response['result']['header']['rcv_name'];
+    $inn=$response['result']['header']['rcv_inn'];
+    $amount=$response['result']['header']['doc_amount'];
+    $sss=round(($response['result']['header']['doc_amount']/$response2['result']['header']['doc_amount'])*100-100,2);
+    $data2=[
+
+      "filter"=>["visibility"=>"ALL"],
+      "limit"=> 25
+    
+  ];
+  $mmm=(post('https://api-seller.ozon.ru/v2/product/list', $data2));
+  $product_id=array();
+  $offer_id=array();
+  foreach ($mmm['result']['items'] as $cashFlow) {
+      array_push($product_id,$cashFlow['product_id']);
+      array_push($offer_id,$cashFlow['offer_id']);
+    }
+  $all=array();
+  for ($i=0; $i < count($product_id); $i++) { 
+      $data3=[
+          "offer_id"=>$offer_id[$i],
+          "product_id"=>$product_id[$i]
+      ];
+      $ppp=(post('https://api-seller.ozon.ru/v2/product/info', $data3));
+      $tovar=array();
+      array_push($tovar,$ppp['result']['primary_image'],$ppp['result']['name'],$ppp['result']['price'],$ppp['result']['status']['state_description'],$ppp['result']['status']['state_tooltip']); 
+      array_push($all, $tovar);
+  }
+    return view('seller', compact('sss','inn','amount','name','all'));
+    }
 }

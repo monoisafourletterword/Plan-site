@@ -18,6 +18,4 @@ Route::get('/', function () {
 })->name('index');
 Route::match(['get', 'post'], '/analytics1', [AnalyticsController::class, 'analiz'])->name('analytics1');
 Route::match(['get', 'post'], '/analytics2', [AnalyticsController::class, 'analiz2'])->name('analytics2');
-Route::get('/seller', function () {
-    return view('seller');
-})->name('seller');
+Route::match(['get', 'post'], '/seller', [AnalyticsController::class, 'seller'])->name('seller');

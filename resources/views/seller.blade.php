@@ -27,6 +27,7 @@
           </ul>
         </nav>
       </aside>
+      
       <script>
     document.addEventListener('DOMContentLoaded', function() {
     var analyticsMenuItem = document.querySelector('nav ul li a[class="dsa"]');
@@ -64,19 +65,29 @@
     });
 });
 
-    </script>
-
+    </script>      
             <section class="profile">
                 <div class="profile-info">
                     <h2>Профиль</h2>
-                    <p><strong>Имя:</strong> Иван Иванов</p>
-                    <p><strong>Компания:</strong> ООО "Рога и Копыта"</p>
+                    <p><strong>ФИО: </strong>{{$name}}</p>
+                    <p><strong>ИНН:</strong> {{$inn}}</p>
                     <p><strong>Email:</strong> ivanov@example.com</p>
                     <p><strong>Телефон:</strong> +7 (123) 456-78-90</p>
                 </div>
-
+                <div class="card-container">
+  <div class="card">
+    <h1>Месячная выручка</h1>
+    <p><span class="{{ $sss >= 0 ? 'positive' : 'negative' }}">{{ $sss }}%</span>, {{$amount}} Р</p>
+  </div>
+  <div class="card">
+    <h1>Упущенная выручка</h1>
+    <p>5 314 594 Р</p>
+  </div>
+  <!-- Добавьте дополнительные карточки согласно вашему дизайну -->
+</div>
                 <!-- ... предыдущий код ... -->
                 <div class="products">
+                  
                     <h2>Товары продавца</h2>
                     <table>
                         <thead>
@@ -89,14 +100,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Пример товара с фотографией -->
+                            <?for ($i=0; $i < count($all); $i++) { 
+                            
+                            ?>
                             <tr>
-                                <td><img src="utug.jpg" alt="Утюг 'Быстрый пар'" class="product-image"></td>
-                                <td>Утюг "Быстрый пар"</td>
-                                <td>2500 ₽</td>
-                                <td>20</td>
-                                <td>Бытовая техника</td>
+                                <td><img src="{{$all[$i][0]}}" alt="Нету изобрадения товара'" class="product-image"></td>
+                                <td>{{$all[$i][1]}}</td>
+                                <td>{{$all[$i][2]}} ₽</td>
+                                <td>{{$all[$i][3]}}<p>{{$all[$i][4]}}</td>
+                                <td>Постельное белье</td>
                             </tr>
+                            <? }?>
                             <!-- Добавьте другие товары аналогично -->
                         </tbody>
                     </table>
