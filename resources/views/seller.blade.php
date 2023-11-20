@@ -77,11 +77,11 @@
                         <div class="card-container">
                             <div class="card">
                                 <h2>Месячная выручка</h2>
-                                <p><span class="{{ $sss >= 0 ? 'positive' : 'negative' }}">{{ $sss }}%</span>, {{$amount}} Р</p>
+                                <p>{{$amount}} ₽ (<span class="{{ $sss >= 0 ? 'positive' : 'negative' }}">{{ $sss }}%</span>)</p>
                             </div>
                             <div class="card">
                                 <h2>Упущенная выручка</h2>
-                                <p>5 314 594 Р</p>
+                                <p>5 314 594 ₽</p>
                             </div>
                             <!-- Добавьте дополнительные карточки согласно вашему дизайну -->
                         </div>
@@ -105,7 +105,7 @@
 
                                     ?>
                                         <tr>
-                                            <td><img src="{{$all[$i][0]}}" alt="Нету изобрадения товара'" class="product-image"></td>
+                                            <td><img src="{{$all[$i][0]}}" alt="Нету изображения товара'" class="product-image"></td>
                                             <td>{{$all[$i][1]}}</td>
                                             <td>{{$all[$i][2]}} ₽</td>
                                             <td>{{$all[$i][3]}}
