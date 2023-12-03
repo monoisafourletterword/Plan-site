@@ -32,7 +32,6 @@ class AnalyticsController extends Controller
         $fromDate = mktime(0, 0, 0, 1, 1, date('Y'));
         break;
       default:
-        // Если период неизвестен, возвращаем false
         return false;
     }
     return [
@@ -270,6 +269,7 @@ class AnalyticsController extends Controller
       array_push($tovar,$ppp['result']['primary_image'],$ppp['result']['name'],$ppp['result']['price'],$ppp['result']['status']['state_description'],$ppp['result']['status']['state_tooltip']); 
       array_push($all, $tovar);
   }
+
     return view('seller', compact('sss','inn','amount','name','all'));
     }
 }

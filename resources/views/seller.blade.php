@@ -91,6 +91,13 @@
                             <br>
                             <br>
                             <h2>Товары продавца</h2>
+                            <div>
+                                <h3>Фильтрация по цене</h3>
+                                <input type="number" id="price-from" placeholder="От">
+                                <input type="number" id="price-to" placeholder="До">
+                                <button id="price-btn">Отфильтровать</button>
+                            </div>
+                            
                             <table>
                                 <thead>
                                     <tr>
@@ -101,7 +108,7 @@
                                         <th>Категория</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="table-body">
                                     <? for ($i = 0; $i < count($all); $i++) {
 
                                     ?>
@@ -109,8 +116,8 @@
                                             <td><img src="{{$all[$i][0]}}" alt="Нету изображения товара'" class="product-image"></td>
                                             <td>{{$all[$i][1]}}</td>
                                             <td>{{$all[$i][2]}} ₽</td>
-                                            <td>{{$all[$i][3]}}
-                                                <p>{{$all[$i][4]}}
+                                            <td>{{$all[$i][3]}}<br>
+                                                {{$all[$i][4]}}
                                             </td>
                                             <td>Постельное белье</td>
                                         </tr>
@@ -126,5 +133,73 @@
             </section>
         </div>
 </body>
+<script>
+    const data = [];
+    const filter = []
 
+    const table = document.querySelector("#table-body");
+    <? for ($i = 0; $i < count($all); $i++) {
+
+    ?>
+        data.push({
+            img_path : '<?= $all[$i][0] ?>',
+            name : '<?=$all[$i][1]?>',
+            price : '<?=$all[$i][2]?>',
+            nalichie : '<?=$all[$i][3]?>',
+            hz : '<?=$all[$i][4]?>'
+        })
+    <? } ?>
+
+
+    const priceFilterBtn = document.querySelector("#price-btn")
+
+    priceFilterBtn.addEventListener('click', () => {
+        const from = Number(document.querySelector("#price-from").value)
+        const to = Number(document.querySelector("#price-to").value)
+
+        const filtered = data.filter((elem)=> {
+            const price = Number(elem.price)
+
+            return price >= from && price <= to;
+        })
+
+        while (table.firstChild) {
+            table.removeChild(table.firstChild);
+        }
+
+        console.log(filtered.length)
+        
+        for (let i = 0; i < filtered.length; i++) {
+            const row = document.createElement("tr");
+            
+            const cell1 = document.createElement("td");
+            const img = document.createElement("img");
+            img.src = filtered[i].img_path;
+            img.alt = "Нету изображения товара";
+            img.className = "product-image";
+            cell1.appendChild(img);
+
+            const cell2 = document.createElement("td");
+            cell2.textContent = filtered[i].name;
+
+            const cell3 = document.createElement("td");
+            cell3.textContent = `${filtered[i].price} ₽`
+
+            const cell4 = document.createElement("td");
+            cell4.textContent = `${filtered[i].nalichie} <br> ${filtered[i].hz}`
+            const cell5 = document.createElement("td");
+            cell5.textContent = 'Постельное белье'
+
+            row.appendChild(cell1);
+            row.appendChild(cell2);
+            row.appendChild(cell3);
+            row.appendChild(cell4);
+            row.appendChild(cell5);
+
+            table.appendChild(row);
+        }
+    })
+    
+    
+</script>
 </html>

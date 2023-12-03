@@ -16,6 +16,7 @@ use App\Http\Controllers\AnalyticsController;
 Route::get('/', function () {
     return view('index');
 })->name('index');
+
 Route::match(['get', 'post'], '/analytics1', [AnalyticsController::class, 'analiz'])->name('analytics1');
 Route::match(['get', 'post'], '/analytics2', [AnalyticsController::class, 'analiz2'])->name('analytics2');
 Route::match(['get', 'post'], '/seller', [AnalyticsController::class, 'seller'])->name('seller');
