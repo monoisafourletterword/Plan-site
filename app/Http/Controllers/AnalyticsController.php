@@ -207,7 +207,7 @@ class AnalyticsController extends Controller
             'Api-Key: ' . $api_key,
             'Content-Type: application/json'
         ];
-    
+        set_time_limit(0);
         $curl = curl_init($host);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($curl, CURLOPT_HEADER, false);
@@ -247,8 +247,8 @@ class AnalyticsController extends Controller
     $sss=round(($response['result']['header']['doc_amount']/$response2['result']['header']['doc_amount'])*100-100,2);
     $data2=[
 
-      "filter"=>["visibility"=>"ALL"],
-      "limit"=> 25
+      "filter"=>["visibility"=>"TO_SUPPLY"],
+      'limit'=>20
     
   ];
   $mmm=(post('https://api-seller.ozon.ru/v2/product/list', $data2));
