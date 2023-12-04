@@ -76,8 +76,8 @@
                         </div>
                         <div class="card-container">
                             <div class="card">
-                                <h2>Месячная выручка</h2>
-                                <p>{{$amount}} ₽ (<span class="{{ $sss >= 0 ? 'positive' : 'negative' }}">{{ $sss }}%</span>)</p>
+                                <h2>Месячная выручка(Ноябрь)</h2>
+                                <p>{{$totalOrders}} ₽ (<span class="{{ $sss >= 0 ? 'positive' : 'negative' }}">{{ $sss }}%</span>)</p>
                             </div>
                             <div class="card">
                                 <h2>Упущенная выручка</h2>
@@ -90,7 +90,6 @@
                             <h2>Товары продавца</h2>
                             <button id="filter-btn"class="filter-button">Фильтр</button>
 
-            <!-- Filter Modal -->
             <div id="filter-modal" class="modal">
                 <div class="modal-content">
                     <span class="close" id="close-modal">&times;</span>

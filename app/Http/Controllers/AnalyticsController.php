@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Cache;
 class AnalyticsController extends Controller
 {
     public function analiz(Request $request)
@@ -245,31 +245,73 @@ class AnalyticsController extends Controller
     $inn=$response['result']['header']['rcv_inn'];
     $amount=$response['result']['header']['doc_amount'];
     $sss=round(($response['result']['header']['doc_amount']/$response2['result']['header']['doc_amount'])*100-100,2);
-    $data2=[
+    $cacheKey = 'ozon_product_info';
+    $cacheDuration = 60;
 
-      "filter"=>["visibility"=>"TO_SUPPLY"],
-      'limit'=>20
-    
+    if (Cache::has($cacheKey)) {
+        $all = Cache::get($cacheKey);
+    } else {
+        $data2 = [
+            "filter" => ["visibility" => "TO_SUPPLY"],
+            'limit' => 20
+        ];
+        $mmm = post('https://api-seller.ozon.ru/v2/product/list', $data2);
+
+        $product_id = [];
+        $offer_id = [];
+
+        foreach ($mmm['result']['items'] as $cashFlow) {
+            array_push($product_id, $cashFlow['product_id']);
+            array_push($offer_id, $cashFlow['offer_id']);
+        }
+
+        $all = [];
+        for ($i = 0; $i < count($product_id); $i++) {
+            $data3 = [
+                "offer_id" => $offer_id[$i],
+                "product_id" => $product_id[$i]
+            ];
+            $ppp = post('https://api-seller.ozon.ru/v2/product/info', $data3);
+            $tovar = [];
+            array_push($tovar, $ppp['result']['primary_image'], $ppp['result']['name'], $ppp['result']['price'], $ppp['result']['status']['state_description'], $ppp['result']['status']['state_tooltip']);
+            array_push($all, $tovar);
+        }
+        Cache::put($cacheKey, $all, $cacheDuration);
+      }
+  $data5 = [
+    'date' => ["from"=> "2023-11-01T00:00:00.000Z",
+    "to"=> "2023-11-30T00:00:00.000Z"],
+    "with_details" => false,
+    "page" =>  1,
+    "page_size" =>  20,
   ];
-  $mmm=(post('https://api-seller.ozon.ru/v2/product/list', $data2));
-  $product_id=array();
-  $offer_id=array();
-  foreach ($mmm['result']['items'] as $cashFlow) {
-      array_push($product_id,$cashFlow['product_id']);
-      array_push($offer_id,$cashFlow['offer_id']);
-    }
-  $all=array();
-  for ($i=0; $i < count($product_id); $i++) { 
-      $data3=[
-          "offer_id"=>$offer_id[$i],
-          "product_id"=>$product_id[$i]
-      ];
-      $ppp=(post('https://api-seller.ozon.ru/v2/product/info', $data3));
-      $tovar=array();
-      array_push($tovar,$ppp['result']['primary_image'],$ppp['result']['name'],$ppp['result']['price'],$ppp['result']['status']['state_description'],$ppp['result']['status']['state_tooltip']); 
-      array_push($all, $tovar);
-  }
+  $data6 = [
+    'date' => ["from"=> "2023-10-01T00:00:00.000Z",
+    "to"=> "2023-10-31T00:00:00.000Z"],
+    "with_details" => false,
+    "page" =>  1,
+    "page_size" =>  20,
+  ];
+  function sumOrdersAmount($data)
+  {
+    $totalOrdersAmount = 0;
 
-    return view('seller', compact('sss','inn','amount','name','all'));
+    if (is_array($data['result']['cash_flows'])) {
+      foreach ($data['result']['cash_flows'] as $cashFlow) {
+        if (isset($cashFlow['orders_amount'])) {
+          $totalOrdersAmount += $cashFlow['orders_amount'];
+        }
+      }
+    }
+    return $totalOrdersAmount;
+  }
+  $response = post('https://api-seller.ozon.ru/v1/finance/cash-flow-statement/list', $data5);
+  if (isset($response['result']) && isset($response['result']['cash_flows'])) 
+    $totalOrders = sumOrdersAmount($response);
+  $responsee = post('https://api-seller.ozon.ru/v1/finance/cash-flow-statement/list', $data6);
+  if (isset($response['result']) && isset($response['result']['cash_flows'])) 
+    $totalOrders2 = sumOrdersAmount($responsee);
+  $sss=round(($totalOrders/$totalOrders2)*100-100,2);
+    return view('seller', compact('sss','inn','totalOrders','name','all'));
     }
 }
