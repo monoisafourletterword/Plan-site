@@ -9,10 +9,18 @@
 </head>
 
 <body>
+
   <div class="container">
     <header class="header">
       <h1>Главная</h1>
     </header>
+    <form method="POST" action="{{ route('logout') }}">
+            @csrf
+
+            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                {{ __('Выход') }}
+            </button>
+        </form>
     <div class="main-content">
       <aside class="sidebar">
         <nav>

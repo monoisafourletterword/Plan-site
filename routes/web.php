@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnalyticsController;
+use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +14,22 @@ use App\Http\Controllers\AnalyticsController;
 |
 */
 
+
 Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/index', function () {
     return view('index');
-})->name('index');
+})->middleware(['auth', 'verified'])->name('index');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
 
 Route::match(['get', 'post'], '/analytics1', [AnalyticsController::class, 'analiz'])->name('analytics1');
 Route::match(['get', 'post'], '/analytics2', [AnalyticsController::class, 'analiz2'])->name('analytics2');
